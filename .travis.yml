@@ -12,7 +12,8 @@ env:
     - COMPOSER_FLAGS=""
 
 before_install:
-  - sudo apt-get update
+  - echo "extension = php_curl.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  - echo "extension = php_gmp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
 before_script:
   - travis_retry composer self-update
