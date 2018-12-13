@@ -2,11 +2,11 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/laravel-apn-notification-channel)
+[![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/semyonchetvertnyh/laravel-apn-notification-channel)
 [![StyleCI](https://styleci.io/repos/161703866/shield)](https://styleci.io/repos/161703866)
-[![Quality Score](https://img.shields.io/scrutinizer/g/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-apn-notification-channel)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-apn-notification-channel/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-apn-notification-channel)
+[![Quality Score](https://img.shields.io/scrutinizer/g/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/semyonchetvertnyh/laravel-apn-notification-channel)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/semyonchetvertnyh/laravel-apn-notification-channel/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
 
 This package makes it easy to send notifications with Laravel 5.3+ to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key).
 
