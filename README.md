@@ -1,6 +1,6 @@
 # APNs (.p8) notifications channel for Laravel 5.3+
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-apn-notification-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/laravel-apn-notification-channel)
 [![StyleCI](https://styleci.io/repos/161703866/shield)](https://styleci.io/repos/161703866)
