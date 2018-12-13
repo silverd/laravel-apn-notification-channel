@@ -1,22 +1,19 @@
 language: php
 
 php:
-  - 7.0
   - 7.1
-  - 7.2
-  - 7.3
 
-env:
-  matrix:
-    - COMPOSER_FLAGS="--prefer-lowest"
-    - COMPOSER_FLAGS=""
+sudo: required
 
-before_script:
-  - travis_retry composer self-update
-  - travis_retry composer update ${COMPOSER_FLAGS} --no-interaction --prefer-source
+services:
+  - docker
+
+before_install:
+  - docker pull edamov/pushok-docker
 
 script:
-  - phpunit --coverage-text --coverage-clover=coverage.clover
+  - docker run --name=php7.1 -e TRAVIS=true -e TRAVIS_JOB_ID="${TRAVIS_JOB_ID}" -d -v /home/travis/build/edamov/pushok:/home/pushok edamov/pushok-docker tail -f /dev/null
+  - docker exec -t php7.1 /bin/sh -c "cd /home/pushok && php /composer.phar update ${COMPOSER_FLAGS} --no-interaction --prefer-dist && /home/pushok/vendor/bin/phpunit --coverage-clover /home/pushok/build/logs/clover.xml"
 
 after_script:
   - wget https://scrutinizer-ci.com/ocular.phar
