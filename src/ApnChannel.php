@@ -44,7 +44,7 @@ class ApnChannel
     {
         if (! $deviceTokens = $notifiable->routeNotificationFor('apn', $notification)) {
             return;
-        };
+        }
 
         $this->client->addNotifications(
             $this->notifications(
