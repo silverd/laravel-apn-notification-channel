@@ -1,14 +1,14 @@
 # APNs (.p8) notifications channel for Laravel 5.3+
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/apn-p8)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-apn-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/laravel-notification-channels/apn-p8)
+[![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/laravel-apn-notification-channel)
 [![StyleCI](https://styleci.io/repos/161703866/shield)](https://styleci.io/repos/161703866)
-[![Quality Score](https://img.shields.io/scrutinizer/g/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/apn-p8)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-notification-channels/apn-p8/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-notification-channels/apn-p8)
+[![Quality Score](https://img.shields.io/scrutinizer/g/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-apn-notification-channel)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-apn-notification-channel/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/laravel-apn-notification-channel)
 
-This package makes it easy to send notifications using Apple Push (APN) with Laravel 5.3+.
+This package makes it easy to send notifications with Laravel 5.3+ to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key).
 
 ## Contents
 
@@ -18,6 +18,7 @@ This package makes it easy to send notifications using Apple Push (APN) with Lar
 	- [Setting up the APN service](#setting-up-the-apn-service)
 - [Usage](#usage)
 	- [Available Message methods](#available-message-methods)
+- [TODO](#todo)
 - [Changelog](#changelog)
 - [Testing](#testing)
 - [Security](#security)
@@ -45,7 +46,7 @@ This package makes it easy to send notifications using Apple Push (APN) with Lar
 Install this package with Composer:
 
 ```bash
-composer require laravel-notification-channels/apn-p8
+composer require semyonchetvertnyh/laravel-apn-notification-channel
 ```
 
 If you're installing the package in Laravel 5.4 or lower, you must import the service provider:
@@ -54,7 +55,7 @@ If you're installing the package in Laravel 5.4 or lower, you must import the se
 // config/app.php
 'providers' => [
     // ...
-    SemyonChetvertnyh\NotificationChannelApn\ApnServiceProvider::class,
+    SemyonChetvertnyh\ApnNotificationChannel\ApnServiceProvider::class,
 ],
 ```
 
@@ -84,8 +85,8 @@ Now you can use the channel in your `via()` method inside the notification:
 
 ```php
 use Illuminate\Notifications\Notification;
-use SemyonChetvertnyh\NotificationChannelApn\ApnChannel;
-use SemyonChetvertnyh\NotificationChannelApn\ApnMessage;
+use SemyonChetvertnyh\ApnNotificationChannel\ApnChannel;
+use SemyonChetvertnyh\ApnNotificationChannel\ApnMessage;
 
 class AccountApproved extends Notification
 {
@@ -149,6 +150,12 @@ public function routeNotificationForApn()
  - `contentAvailability($bool)`
  - `mutableContent($bool)`
  - `threadId($str)`
+ 
+## TODO
+
+- [ ] Add tests
+- [ ] Fix Travis CI
+- [ ] Fix Scrutinizer CI
 
 ## Changelog
 

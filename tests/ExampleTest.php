@@ -1,6 +1,6 @@
 <?php
 
-namespace SemyonChetvertnyh\NotificationChannelApn\Test;
+namespace SemyonChetvertnyh\ApnNotificationChannel\Test;
 
 class ExampleTest extends \PHPUnit_Framework_TestCase
 {

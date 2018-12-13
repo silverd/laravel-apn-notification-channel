@@ -1,6 +1,6 @@
 <?php
 
-namespace SemyonChetvertnyh\NotificationChannelApn\Exceptions;
+namespace SemyonChetvertnyh\ApnNotificationChannel\Exceptions;
 
 class CouldNotSendNotification extends \Exception
 {

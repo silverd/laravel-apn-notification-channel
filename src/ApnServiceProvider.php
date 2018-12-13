@@ -1,6 +1,6 @@
 <?php
 
-namespace SemyonChetvertnyh\NotificationChannelApn;
+namespace SemyonChetvertnyh\ApnNotificationChannel;
 
 use Pushok\Client;
 use Pushok\AuthProvider\Token;

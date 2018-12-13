@@ -1,14 +1,14 @@
 <?php
 
-namespace SemyonChetvertnyh\NotificationChannelApn;
+namespace SemyonChetvertnyh\ApnNotificationChannel;
 
 use Pushok\Client;
 use Pushok\Payload;
 use Pushok\Payload\Alert;
 use Illuminate\Notifications\Notification;
 use Pushok\Notification as PushokNotification;
-use SemyonChetvertnyh\NotificationChannelApn\Exceptions\InvalidPayloadException;
-use SemyonChetvertnyh\NotificationChannelApn\Exceptions\CouldNotSendNotification;
+use SemyonChetvertnyh\ApnNotificationChannel\Exceptions\InvalidPayloadException;
+use SemyonChetvertnyh\ApnNotificationChannel\Exceptions\CouldNotSendNotification;
 
 class ApnChannel
 {
@@ -37,14 +37,14 @@ class ApnChannel
      * @param  \Illuminate\Notifications\Notification  $notification
      * @return void
      *
-     * @throws \SemyonChetvertnyh\NotificationChannelApn\Exceptions\CouldNotSendNotification
-     * @throws \SemyonChetvertnyh\NotificationChannelApn\Exceptions\InvalidPayloadException
+     * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\CouldNotSendNotification
+     * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\InvalidPayloadException
      */
     public function send($notifiable, Notification $notification)
     {
         if (! $deviceTokens = $notifiable->routeNotificationFor('apn', $notification)) {
             return;
-        }
+        };
 
         $this->client->addNotifications(
             $this->notifications(
@@ -66,7 +66,7 @@ class ApnChannel
     /**
      * Format an array with notifications.
      *
-     * @param  \SemyonChetvertnyh\NotificationChannelApn\ApnMessage  $message
+     * @param  \SemyonChetvertnyh\ApnNotificationChannel\ApnMessage  $message
      * @param  array  $deviceTokens
      * @return \Pushok\Notification[]
      */
@@ -82,10 +82,10 @@ class ApnChannel
     /**
      * Format a payload.
      *
-     * @param  \SemyonChetvertnyh\NotificationChannelApn\ApnMessage  $message
+     * @param  \SemyonChetvertnyh\ApnNotificationChannel\ApnMessage  $message
      * @return \Pushok\Payload
      *
-     * @throws \SemyonChetvertnyh\NotificationChannelApn\Exceptions\InvalidPayloadException
+     * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\InvalidPayloadException
      */
     protected function payload(ApnMessage $message)
     {
@@ -131,7 +131,7 @@ class ApnChannel
     /**
      * Format a alert.
      *
-     * @param  \SemyonChetvertnyh\NotificationChannelApn\ApnMessage  $message
+     * @param  \SemyonChetvertnyh\ApnNotificationChannel\ApnMessage  $message
      * @return \Pushok\Payload\Alert
      */
     protected function alert(ApnMessage $message)
