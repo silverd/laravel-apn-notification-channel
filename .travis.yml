@@ -2,9 +2,9 @@ language: php
 
 php:
   - 7.0
-  - 7.1
-  - 7.2
-  - 7.3
+#  - 7.1
+#  - 7.2
+#  - 7.3
 
 env:
   matrix:
@@ -12,6 +12,7 @@ env:
     - COMPOSER_FLAGS=""
 
 before_install:
+  - sudo apt-get install php7.0-curl php7.0-gmp
   - echo "extension = curl.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - echo "extension = gmp.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
 
