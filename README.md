@@ -153,9 +153,9 @@ public function routeNotificationForApn()
  
 ## TODO
 
+- [X] Fix Travis CI
+- [ ] Fix Scrutinizer CI Code Coverage
 - [ ] Add tests
-- [ ] Fix Travis CI
-- [ ] Fix Scrutinizer CI
 
 ## Changelog
 
