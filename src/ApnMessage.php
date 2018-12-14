@@ -91,7 +91,7 @@ class ApnMessage
     /**
      * Variable string values to appear in place of the format specifiers in loc-key.
      *
-     * @var string[]
+     * @var array
      */
     public $locArgs;
 

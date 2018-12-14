@@ -105,11 +105,11 @@ class ApnChannel
             $payload->setBadge($message->badge);
         }
 
-        if ($message->sound) {
+        if (! is_null($message->sound)) {
             $payload->setSound($message->sound);
         }
 
-        if ($message->category) {
+        if (! is_null($message->category)) {
             $payload->setCategory($message->category);
         }
 
@@ -158,15 +158,15 @@ class ApnChannel
             $alert->setTitleLocArgs($message->titleLocArgs);
         }
 
-        if ($message->titleLocKey) {
+        if (! is_null($message->titleLocKey)) {
             $alert->setTitleLocKey($message->titleLocKey);
         }
 
-        if ($message->actionLocKey) {
+        if (! is_null($message->actionLocKey)) {
             $alert->setActionLocKey($message->actionLocKey);
         }
 
-        if ($message->locArgs) {
+        if (! empty($message->locArgs)) {
             $alert->setLocArgs($message->locArgs);
         }
 
