@@ -42,7 +42,7 @@ class ApnChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $deviceTokens = $notifiable->routeNotificationFor('apn', $notification)) {
+        if (! $deviceTokens = (array) $notifiable->routeNotificationFor('apn', $notification)) {
             return;
         }
 

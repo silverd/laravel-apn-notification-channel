@@ -72,7 +72,7 @@ Add the credentials to your `config/broadcasting.php`:
         'key_id' => env('APN_KEY_ID'),
         'team_id' => env('APN_TEAM_ID'),
         'app_bundle_id' => env('APN_APP_BUNDLE_ID'),
-        'private_key_path' => env('APN_PRIVATE_KEY_PATH', storage_path('private_key.p8')),
+        'private_key_path' => env('APN_PRIVATE_KEY', storage_path('apns-private-key.p8')),
         'private_key_secret' => env('APN_PRIVATE_KEY_SECRET'),
     ],
     ...
