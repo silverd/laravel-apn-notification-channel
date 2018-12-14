@@ -56,9 +56,9 @@ class ApnChannel
 
         foreach ($responses as $response) {
             if ($response->getStatusCode() !== 200) {
-                throw new CouldNotSendNotification(
+                throw CouldNotSendNotification::make(
                     $response->getErrorDescription() ?: $response->getReasonPhrase(), $response->getStatusCode()
-                );
+                )->withResponse($response);
             }
         }
     }
