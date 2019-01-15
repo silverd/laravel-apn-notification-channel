@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 0.1.3 - 2018-01-15
+
+- Add "apn" channel to Channel Manager as extension 
+
 ## 0.1.2 - 2018-12-14
 
 - Force routeNotificationFor('apn', $notifiable) as array

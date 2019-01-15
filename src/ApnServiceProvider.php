@@ -5,6 +5,7 @@ namespace SemyonChetvertnyh\ApnNotificationChannel;
 use Pushok\Client;
 use Pushok\AuthProvider\Token;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Notifications\ChannelManager;
 
 class ApnServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,10 @@ class ApnServiceProvider extends ServiceProvider
             ]);
 
             return new Client($authProvider, $config['is_production']);
+        });
+
+        $this->app->make(ChannelManager::class)->extend('apn', function () {
+            return new ApnChannel(app(Client::class));
         });
     }
 }

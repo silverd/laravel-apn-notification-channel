@@ -85,7 +85,6 @@ Now you can use the channel in your `via()` method inside the notification:
 
 ```php
 use Illuminate\Notifications\Notification;
-use SemyonChetvertnyh\ApnNotificationChannel\ApnChannel;
 use SemyonChetvertnyh\ApnNotificationChannel\ApnMessage;
 
 class AccountApproved extends Notification
@@ -98,7 +97,7 @@ class AccountApproved extends Notification
      */
     public function via($notifiable)
     {
-        return [ApnChannel::class];
+        return ['apn'];
     }
 
     /**
