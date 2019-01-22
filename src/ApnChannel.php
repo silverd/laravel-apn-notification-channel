@@ -6,6 +6,7 @@ use Pushok\Client;
 use Pushok\Payload;
 use Pushok\Payload\Alert;
 use Illuminate\Notifications\Notification;
+use Illuminate\Contracts\Support\Arrayable;
 use Pushok\Notification as PushokNotification;
 use SemyonChetvertnyh\ApnNotificationChannel\Exceptions\InvalidPayloadException;
 use SemyonChetvertnyh\ApnNotificationChannel\Exceptions\CouldNotSendNotification;
@@ -42,7 +43,7 @@ class ApnChannel
      */
     public function send($notifiable, Notification $notification)
     {
-        if (! $deviceTokens = (array) $notifiable->routeNotificationFor('apn', $notification)) {
+        if (! $deviceTokens = $notifiable->routeNotificationFor('apn', $notification)) {
             return;
         }
 
@@ -67,11 +68,13 @@ class ApnChannel
      * Format an array with notifications.
      *
      * @param  \SemyonChetvertnyh\ApnNotificationChannel\ApnMessage  $message
-     * @param  array  $deviceTokens
+     * @param  \Illuminate\Contracts\Support\Arrayable|array  $deviceTokens
      * @return \Pushok\Notification[]
      */
     protected function notifications(ApnMessage $message, $deviceTokens)
     {
+        $deviceTokens = $deviceTokens instanceof Arrayable ? $deviceTokens->toArray() : $deviceTokens;
+
         return collect($deviceTokens)->map(function ($deviceToken) use ($message) {
             return new PushokNotification(
                 $this->payload($message), $deviceToken

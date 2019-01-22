@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 0.1.4 - 2018-01-22
+
+- Add possibility to return an Arrayable object in routeNotificationForApn()
+
 ## 0.1.3 - 2018-01-15
 
 - Add "apn" channel to Channel Manager as extension 
