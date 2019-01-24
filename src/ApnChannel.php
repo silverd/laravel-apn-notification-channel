@@ -132,7 +132,7 @@ class ApnChannel
     }
 
     /**
-     * Format a alert.
+     * Format an alert.
      *
      * @param  \SemyonChetvertnyh\ApnNotificationChannel\ApnMessage  $message
      * @return \Pushok\Payload\Alert
