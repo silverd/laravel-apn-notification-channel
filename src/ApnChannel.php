@@ -38,8 +38,8 @@ class ApnChannel
      * @param  \Illuminate\Notifications\Notification  $notification
      * @return void
      *
-     * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\CouldNotSendNotification
      * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\InvalidPayloadException
+     * @throws \SemyonChetvertnyh\ApnNotificationChannel\Exceptions\CouldNotSendNotification
      */
     public function send($notifiable, Notification $notification)
     {
@@ -48,9 +48,7 @@ class ApnChannel
         }
 
         $this->client->addNotifications(
-            $this->notifications(
-                $notification->toApn($notifiable), $deviceTokens
-            )
+            $this->notifications($notification->toApn($notifiable), $deviceTokens)
         );
 
         $responses = $this->client->push();
@@ -76,9 +74,7 @@ class ApnChannel
         $deviceTokens = $deviceTokens instanceof Arrayable ? $deviceTokens->toArray() : $deviceTokens;
 
         return collect($deviceTokens)->map(function ($deviceToken) use ($message) {
-            return new PushokNotification(
-                $this->payload($message), $deviceToken
-            );
+            return new PushokNotification($this->payload($message), $deviceToken);
         })->all();
     }
 
@@ -92,9 +88,8 @@ class ApnChannel
      */
     protected function payload(ApnMessage $message)
     {
-        $payload = Payload::create()->setAlert(
-            $this->alert($message)
-        );
+        $payload = Payload::create()
+            ->setAlert($this->alert($message));
 
         if ($message->isContentAvailable()) {
             $payload->setContentAvailability($message->isContentAvailable());
