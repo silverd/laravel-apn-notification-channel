@@ -2,6 +2,10 @@
 
 All notable changes will be documented in this file.
 
+## 0.1.5 - 2018-02-19
+
+- Add support for Laravel 5.8
+
 ## 0.1.4 - 2018-01-22
 
 - Add possibility to return an Arrayable object in routeNotificationForApn()
