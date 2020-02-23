@@ -1,4 +1,4 @@
-# APNs (.p8) notifications channel for Laravel 5.8
+# APNs (.p8) notifications channel for Laravel 6
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -8,7 +8,7 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/semyonchetvertnyh/laravel-apn-notification-channel/?branch=master)
 [![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
 
-This package makes it easy to send notifications with Laravel 5.8 to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key).
+This package makes it easy to send notifications with Laravel 6 to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key).
 
 ## Contents
 
@@ -30,14 +30,14 @@ This package makes it easy to send notifications with Laravel 5.8 to iOS using t
 
 - [X] Uses new Apple APNs HTTP/2 connection
 - [X] Supports JWT-based authentication
+- [X] Supports Certificate-based authentication
 - [X] Supports new iOS 10 features such as Collapse IDs, Subtitles and Mutable Notifications
 - [X] Uses concurrent requests to APNs
 - [X] Tested and working in APNs production environment
-- [ ] Supports Certificate-based authentication
 
 ## Requirements
 
-* PHP >= 7.0
+* PHP >= 7.2
 * lib-curl >= 7.46.0 (with http/2 support enabled)
 * lib-openssl >= 1.0.2e 
 
@@ -63,17 +63,36 @@ If you're installing the package in Laravel 5.4 or lower, you must import the se
 
 Add the credentials to your `config/broadcasting.php`:
 
+If you are using JWT-based authentication:
+
 ```php
 // config/broadcasting.php
 'connections' => [
     ...
     'apn' => [
+        'driver' => 'jwt',
         'is_production' => env('APP_ENV') === 'production',
         'key_id' => env('APN_KEY_ID'), // The Key ID of the p8 file (available at https://developer.apple.com/account/ios/authkey/)
         'team_id' => env('APN_TEAM_ID'), // The Team ID of your Apple Developer Account (available at https://developer.apple.com/account/#/membership/)
         'app_bundle_id' => env('APN_APP_BUNDLE_ID'), // The Bundle ID of your application. For example, "com.company.application"
         'private_key_path' => env('APN_PRIVATE_KEY', storage_path('apns-private-key.p8')),
         'private_key_secret' => env('APN_PRIVATE_KEY_SECRET'),
+    ],
+    ...
+],
+```
+
+If you are using Certificate-based authentication:
+
+```php
+// config/broadcasting.php
+'connections' => [
+    ...
+    'apn' => [
+        'driver' => 'certificate',
+        'is_production' => env('APP_ENV') === 'production',
+        'certificate_path' => env('APN_CERTIFICATE_PATH', storage_path('apns-certificate.pem')),
+        'certificate_secret' => env('APN_CERTIFICATE_SECRET'),
     ],
     ...
 ],
