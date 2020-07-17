@@ -1,5 +1,5 @@
 {
-    "name": "semyonchetvertnyh/laravel-apn-notification-channel",
+    "name": "silverd/laravel-apn-notification-channel",
     "description": "Apple Push Notification Service (APNs) notifications channel for Laravel 6 using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key)",
     "keywords": [
         "apns",
@@ -9,7 +9,7 @@
         "laravel apns",
         "laravel p8"
     ],
-    "homepage": "https://github.com/semyonchetvertnyh/laravel-apn-notification-channel",
+    "homepage": "https://github.com/silverd/laravel-apn-notification-channel",
     "license": "MIT",
     "authors": [
         {
