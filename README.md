@@ -1,12 +1,12 @@
 # APNs (.p8) notifications channel for Laravel 6
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/silverd/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/silverd/laravel-apn-notification-channel)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/travis/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/semyonchetvertnyh/laravel-apn-notification-channel)
+[![Build Status](https://img.shields.io/travis/silverd/laravel-apn-notification-channel/master.svg?style=flat-square)](https://travis-ci.org/silverd/laravel-apn-notification-channel)
 [![StyleCI](https://styleci.io/repos/161703866/shield)](https://styleci.io/repos/161703866)
-[![Quality Score](https://img.shields.io/scrutinizer/g/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/semyonchetvertnyh/laravel-apn-notification-channel)
-[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/semyonchetvertnyh/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/semyonchetvertnyh/laravel-apn-notification-channel/?branch=master)
-[![Total Downloads](https://img.shields.io/packagist/dt/semyonchetvertnyh/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/semyonchetvertnyh/laravel-apn-notification-channel)
+[![Quality Score](https://img.shields.io/scrutinizer/g/silverd/laravel-apn-notification-channel.svg?style=flat-square)](https://scrutinizer-ci.com/g/silverd/laravel-apn-notification-channel)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/silverd/laravel-apn-notification-channel/master.svg?style=flat-square)](https://scrutinizer-ci.com/g/silverd/laravel-apn-notification-channel/?branch=master)
+[![Total Downloads](https://img.shields.io/packagist/dt/silverd/laravel-apn-notification-channel.svg?style=flat-square)](https://packagist.org/packages/silverd/laravel-apn-notification-channel)
 
 This package makes it easy to send notifications with Laravel 6 to iOS using the new APNs HTTP/2 protocol with token-based (JWT with p8 private key).
 
@@ -46,7 +46,7 @@ This package makes it easy to send notifications with Laravel 6 to iOS using the
 Install this package with Composer:
 
 ```bash
-composer require semyonchetvertnyh/laravel-apn-notification-channel
+composer require silverd/laravel-apn-notification-channel
 ```
 
 If you're installing the package in Laravel 5.4 or lower, you must import the service provider:
@@ -195,7 +195,7 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Semyon Chetvertnyh](https://github.com/semyonchetvertnyh)
+- [Semyon Chetvertnyh](https://github.com/silverd)
 - [Arthur Edamov](https://github.com/edamov)
 - [All Contributors](../../contributors)
 
